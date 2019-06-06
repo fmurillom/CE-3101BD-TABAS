@@ -1,0 +1,94 @@
+<div class="alert alert-danger" role="alert" *ngIf="showAlert">
+  Se requieren todos los campos
+</div>
+<div class="alert alert-success" role="alert" *ngIf="showSucces">
+  Usuario Registrado con Exito
+</div>
+<label *ngIf="!showSucces">
+Porfavor introduzca sus datos personales para registrarse en el sistema.
+</label>
+<div>
+  <br>
+    <table *ngIf="!showSucces">
+        <div class="scrollit">
+            <tr>
+                <td>
+                   <label for="input-nombre">Nombre:</label>
+                   <input
+                      #inputNom
+                     id="input-nombre"
+                     type="text"
+                     class="form-control"/>
+                 </td>
+                <td>
+                   <label for="input-apellido1">Primer Apellido:</label>
+                   <input
+                    #inputA1
+                     id="input-apellido1"
+                     type="text"
+                     class="form-control"/>
+                </td>
+                <td>
+                   <label for="input-apellido2">Segundo Apellido:</label>
+                   <input
+                   #inputA2
+                     id="input-apellido2"
+                     type="text"
+                     class="form-control"/>
+                </td>
+               </tr>
+               <tr>
+                 <br>
+               </tr>
+               <tr>
+                   <td>
+                       <label for="input-ced">Numero de Cedula:</label>
+                       <input
+                       #inputCed
+                         id="input-telefono"
+                         type="text"
+                         class="form-control"/>
+                     </td>
+               </tr>
+               <tr>
+                   <br>
+                 </tr>
+               <tr>
+                     <td>
+                      <label for="input-usr">Nombre de Usuario:</label>
+                      <input
+                      #inputUsr
+                        id="input-usr"
+                        type="text"
+                        class="form-control"/>
+                    </td>
+                    <td>
+                      <label for="input-pass">Contraseña:</label>
+                      <input
+                      #inputPass
+                        id="input-pass"
+                        type="password"
+                        class="form-control"/>
+                    </td>
+                    <td>
+                      <label for="selecRol">Rol que Desempeña:</label>
+                      <select #inputRol class="form-control" id="selecuni" formControlName="selecRol" [disabled]="buttonDisabled">
+                          <option value="" disabled selected>Seleccione el rol a desempeñar</option>
+                          <option value="Embarcador">Embarcador</option>
+                          <option value="Scan">Scan</option>
+                          <option value="Administrador">Administrador</option>
+                          <option value="Recepcionista">Recepcionista</option>
+                        </select>
+                    </td>
+               </tr>
+               <tr>
+                   <br>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-dark" (click)="createWorker(inputNom.value, inputA1.value, inputA2.value, inputUsr.value, inputPass.value, inputRol.value)">Registrar Trabajador</button>
+                    </td>
+                </tr>
+        </div>
+       </table>
+</div>

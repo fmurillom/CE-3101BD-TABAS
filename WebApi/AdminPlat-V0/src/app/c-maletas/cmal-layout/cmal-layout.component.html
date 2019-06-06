@@ -1,0 +1,71 @@
+<div class="alert alert-danger" role="alert" *ngIf="showAlert">
+  Se requieren todos los campos
+</div>
+<div class="alert alert-success" role="alert" *ngIf="showSucces">
+  Maleta Registrada con Exito
+</div>
+<label *ngIf="!showSucces">
+Porfavor introduzca los datos de la maleta a registrar en el sistema.
+</label>
+<div>
+  <br>
+    <table *ngIf="!showSucces">
+        <div class="scrollit">
+            <tr>
+                <td>
+                  <label for="selecMal">Dueño de la maleta:</label>
+                  <select #inputUsr class="form-control" id="selecMal" formControlName="selecMal">
+                      <option value="" disabled selected>Seleccione el username del Dueño de la maleta</option>
+                      <option *ngFor="let usr of users" [value]="usr">{{usr}}</option>
+                    </select>
+                 </td>
+                <td>
+                   <label for="input-col">Color de la maleta:</label>
+                   <input
+                    #inputCol
+                     id="input-col"
+                     type="text"
+                     class="form-control"/>
+                </td>
+                <td>
+                   <label for="input-peso">Peso de la maleta:</label>
+                   <input
+                   #inputPeso
+                     id="input-peso"
+                     type="text"
+                     class="form-control"/>
+                </td>
+               </tr>
+               <tr>
+                 <br>
+               </tr>
+               <tr>
+                   <td>
+                       <label for="input-costo">Costo:</label>
+                       <input
+                       #inputCosto
+                         id="input-costo"
+                         type="text"
+                         class="form-control"/>
+                     </td>
+               </tr>
+               <tr>
+                   <br>
+                 </tr>
+               <tr>
+                     <td>
+                      <label for="input-usr">Numero de maleta:</label>
+                      <label>{{numeroMal}}</label>
+                    </td>
+               </tr>
+               <tr>
+                   <br>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-dark" (click)="createMal(inputUsr.value, inputCol.value, inputPeso.value, inputCosto.value)">Registrar Maleta</button>
+                    </td>
+                </tr>
+        </div>
+       </table>
+</div>

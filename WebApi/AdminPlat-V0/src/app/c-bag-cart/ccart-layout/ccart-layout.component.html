@@ -1,0 +1,58 @@
+<div class="alert alert-danger" role="alert" *ngIf="showAlert">
+  Se requieren todos los campos
+</div>
+<div class="alert alert-success" role="alert" *ngIf="showSucces">
+  BagCart Registrado con Exito
+</div>
+<label *ngIf="!showSucces">
+Porfavor introduzca los datos del BagCart a registrar en el sistema.
+</label>
+<div>
+  <br>
+    <table *ngIf="!showSucces">
+        <div class="scrollit">
+            <tr>
+                <td>
+                  <label for="selecMal">Marca:</label>
+                  <select #inputMarc class="form-control" id="selecMarc" formControlName="selecMarc">
+                      <option value="" disabled selected>Seleccione la marca del nuevo BagCart</option>
+                      <option *ngFor="let marc of marcas" [value]="marc.nombre">{{marc.nombre}}</option>
+                    </select>
+                 </td>
+                <td>
+                   <label for="input-ident">Identificador del BagCart:</label>
+                   <input
+                    #inputIden
+                     id="input-ident"
+                     type="text"
+                     class="form-control"/>
+                </td>
+                <td>
+                   <label for="input-anno">Año:</label>
+                   <input
+                   #inputAnno
+                     id="input-anno"
+                     type="text"
+                     class="form-control"/>
+                </td>
+               </tr>
+               <tr>
+                 <br>
+               </tr>
+              <tr>
+                    <td>
+                        <button type="button" class="btn btn-dark" (click)="createBC(inputMarc.value, inputIden.value, inputAnno.value)">Registrar BagCart</button>
+                    </td>
+              </tr>
+              <tr>
+                <br>
+              </tr>
+             <tr>
+                   <td>
+                       <button type="button" class="btn btn-dark" (click)="showEditor()">Nueva Marca</button>
+                   </td>
+               </tr>
+        </div>
+       </table>
+       <app-new-marca *ngIf="showNMarca"></app-new-marca>
+</div>
