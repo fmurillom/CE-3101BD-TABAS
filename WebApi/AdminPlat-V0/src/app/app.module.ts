@@ -11,6 +11,7 @@ import { CMaletasModule } from './c-maletas/c-maletas.module';
 import { CBagCartModule } from './c-bag-cart/c-bag-cart.module';
 import { AsigVModule } from './asig-v/asig-v.module';
 import { CerrarBagCModule } from './cerrar-bag-c/cerrar-bag-c.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CerrarBagCModule } from './cerrar-bag-c/cerrar-bag-c.module';
     CMaletasModule,
     CBagCartModule,
     AsigVModule,
-    CerrarBagCModule
+    CerrarBagCModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

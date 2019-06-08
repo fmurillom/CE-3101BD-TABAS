@@ -5,4 +5,5 @@ export class Vuelo {
     avion: string;
     bagCart: string;
     fecha: string
+    abierto: boolean;
 }

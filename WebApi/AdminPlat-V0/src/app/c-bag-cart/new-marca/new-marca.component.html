@@ -20,21 +20,13 @@ Porfavor introduzca los datos de la Marca a registrar
                      type="text"
                      class="form-control"/>
                 </td>
-                <td>
-                   <label for="input-peso">Peso Maximo:</label>
-                   <input
-                   #inputPeso
-                     id="input-peso"
-                     type="text"
-                     class="form-control"/>
-                </td>
                </tr>
                <tr>
                  <br>
                </tr>
               <tr>
                     <td>
-                        <button type="button" class="btn btn-dark" (click)="createMar(inputIden.value, inputPeso.value)">Registrar Marca</button>
+                        <button type="button" class="btn btn-dark" (click)="createMar(inputIden.value)">Registrar Marca</button>
                     </td>
               </tr>
         </div>

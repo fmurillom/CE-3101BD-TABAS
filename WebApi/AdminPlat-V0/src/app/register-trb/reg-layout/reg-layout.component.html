@@ -74,10 +74,7 @@ Porfavor introduzca sus datos personales para registrarse en el sistema.
                       <label for="selecRol">Rol que Desempeña:</label>
                       <select #inputRol class="form-control" id="selecuni" formControlName="selecRol" [disabled]="buttonDisabled">
                           <option value="" disabled selected>Seleccione el rol a desempeñar</option>
-                          <option value="Embarcador">Embarcador</option>
-                          <option value="Scan">Scan</option>
-                          <option value="Administrador">Administrador</option>
-                          <option value="Recepcionista">Recepcionista</option>
+                          <option *ngFor="let rol of roles" value="rol.idRol">{{rol.rol}}</option>
                         </select>
                     </td>
                </tr>
@@ -86,7 +83,7 @@ Porfavor introduzca sus datos personales para registrarse en el sistema.
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" class="btn btn-dark" (click)="createWorker(inputNom.value, inputA1.value, inputA2.value, inputUsr.value, inputPass.value, inputRol.value)">Registrar Trabajador</button>
+                        <button type="button" class="btn btn-dark" (click)="createWorker(inputNom.value, inputA1.value, inputA2.value, inputUsr.value, inputPass.value, inputRol.value, inputCed.value)">Registrar Trabajador</button>
                     </td>
                 </tr>
         </div>

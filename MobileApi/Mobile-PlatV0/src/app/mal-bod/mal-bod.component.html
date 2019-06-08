@@ -1,0 +1,51 @@
+<div>
+    <label>
+      Asignacion de Maletas
+    </label>
+    <table >
+        <tr>
+          <td>
+            <label for="selecMal">
+              Id del vuelo
+            </label>
+            <select #inputVuelo class="form-control" id="selecVuelo" (change)="changeDetec1(inputVuelo.value)" formControlName="selecMal">
+              <option value="" disabled selected>Seleccione el id del vuelo</option>
+              <option *ngFor="let vuelo of vuelos" [value]="vuelo.id">{{vuelo.id}}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <br>
+        </tr>
+        <tr>
+          <td>
+            <label for="selecMal">
+                Id de la maleta a assignar
+            </label>
+            <select #inputMal class="form-control" id="selecMal" formControlName="selecMal" (change)="changeDetec2(inputMal.value)">
+              <option value="" disabled selected>Seleccione el id de la Maleta</option>
+              <option *ngFor="let mal of maletas" [value]="mal.idMaleta">{{mal.idMaleta}}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="selecBod">
+                    Id de la bodega:
+                </label>
+                <select #inputBod class="form-control" id="selecBod" formControlName="selecBod" >
+                  <option value="" disabled selected>Seleccione el numero de Bodega</option>
+                  <option *ngFor="let bod of bodegas" [value]="bod.idbodega">{{bod.idbodega}}</option>
+                </select>
+              </td>
+        </tr>
+        <tr>
+            <br>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-dark" (click)="asigBod(inputBod.value)">Asignar a Bodega</button>
+            </td>
+        </tr>
+      </table>
+  </div>

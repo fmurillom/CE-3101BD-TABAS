@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import {Router} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Conexion } from '../conexion';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +11,14 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  //conexion: Conexion = new Conexion();
+  conexion: Conexion = new Conexion();
 
   showAlert: boolean = false;
 
   user: User;
 
   constructor(
-    //private httpclient: HttpClient, 
+    private httpclient: HttpClient, 
     private router: Router
     ) { }
 
@@ -31,8 +33,8 @@ export class LoginComponent implements OnInit {
     if(usr == "" || pass == ""){
       this.showAlert = true;
     }
-    else{/*
-      this.httpclient.post(this.conexion.ip + "login", JSON.stringify({username: usr, password: pass})).subscribe(
+    else{
+      this.httpclient.post(this.conexion.ip + "loginTrab", JSON.stringify({username: usr, password: pass})).subscribe(
         data  => {
         console.log("POST Request is successful ", data);
         let aux = data as {data: User};
@@ -53,9 +55,6 @@ export class LoginComponent implements OnInit {
         console.log("Error", error);
         })
       
-      */}
-    this.user = {username: "ollirum", password: "holis", nombre: "Francisco", apellido1: "Murillo", apellido2: "Morgan" ,telefono: 85943291, correo: "fmurillom@gmail.com", nombreTitular: "Francisco Murillo", tarjeta: 1234, fechaExp:"12", puntos: 2, maletas: 0};
-    this.router.navigate(['']);
-    localStorage.setItem('localusr', JSON.stringify(this.user));
+      }
   }
 }

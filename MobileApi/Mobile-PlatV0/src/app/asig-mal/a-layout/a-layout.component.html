@@ -1,0 +1,56 @@
+<div>
+  <label>
+    Asignacion de Maletas
+  </label>
+  <table >
+      <tr>
+        <td>
+          <label for="selecMal">
+            Id de la maleta a Asignar
+          </label>
+          <select #inputMal class="form-control" id="selecMal" (change)="changeDetec(inputMal.value)" formControlName="selecMal">
+            <option value="" disabled selected>Seleccione el id de la maleta</option>
+            <option *ngFor="let mal of maletas" [value]="mal.idMaleta">{{mal.idMaleta}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <br>
+      </tr>
+      <tr>
+        <td>
+          <label for="selecCart">
+              Id del BagCart a asignar
+          </label>
+          <select #inputCart class="form-control" id="selecCart" formControlName="selecMal">
+            <option value="" disabled selected>Seleccione el id del BagCart</option>
+            <option *ngFor="let cart of bagcart" [value]="cart">{{cart}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+          <td>
+              <button type="button" class="btn btn-dark" (click)="asignarMal(inputMal.value, inputCart.value)">Asignar Maleta</button>
+          </td>
+      </tr>
+      <tr>
+          <br>
+      </tr>
+      <tr>
+          <td>
+              <button type="button" class="btn btn-dark" (click)="rechazarMal(inputMal.value, inputCart.value, comentArea.value)">Rechazar Maleta</button>
+          </td>
+      </tr>
+      <tr>
+        <br>
+      </tr>
+      <tr>
+          <label for="input-peso">Comentarios:</label>
+      </tr>
+      <tr>
+        <td>
+          <textarea #comentArea name="textarea" rows="10" cols="50" [disabled]="rechazar"></textarea>
+        </td>
+      </tr>
+    </table>
+</div>

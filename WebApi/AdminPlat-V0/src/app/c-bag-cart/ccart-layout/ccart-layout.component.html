@@ -1,6 +1,9 @@
 <div class="alert alert-danger" role="alert" *ngIf="showAlert">
   Se requieren todos los campos
 </div>
+<div class="alert alert-danger" role="alert" *ngIf="showRepetido">
+  Ya existe un bagcart con ese identificador en el sistema.
+</div>
 <div class="alert alert-success" role="alert" *ngIf="showSucces">
   BagCart Registrado con Exito
 </div>
@@ -16,7 +19,7 @@ Porfavor introduzca los datos del BagCart a registrar en el sistema.
                   <label for="selecMal">Marca:</label>
                   <select #inputMarc class="form-control" id="selecMarc" formControlName="selecMarc">
                       <option value="" disabled selected>Seleccione la marca del nuevo BagCart</option>
-                      <option *ngFor="let marc of marcas" [value]="marc.nombre">{{marc.nombre}}</option>
+                      <option *ngFor="let marc of marcas" [value]="marc.id">{{marc.marca}}</option>
                     </select>
                  </td>
                 <td>

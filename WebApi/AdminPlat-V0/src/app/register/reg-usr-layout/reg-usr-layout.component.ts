@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "src/app/user";
+import { HttpClient } from '@angular/common/http';
+import { UniversidadService } from 'src/app/service/universidad.service';
+import { Conexion } from 'src/app/conexion';
 
 @Component({
   selector: 'app-reg-usr-layout',
@@ -17,12 +20,16 @@ export class RegUsrLayoutComponent implements OnInit {
 
   newUser: User = new User();
 
+  conexion: Conexion = new Conexion();
 
-  constructor() {
-    this.uni = ["Instituto Tecnologico de Costa Rica", "Universidad de Costa Rica"];
+
+  constructor(private httpclient: HttpClient, private uniserv: UniversidadService) {
+    this.uni;// = ["Instituto Tecnologico de Costa Rica", "Universidad de Costa Rica"];
    }
 
   ngOnInit() {
+    this.uniserv.getUni()
+    .subscribe((dato: {data: any}) => this.uni = dato['data']);
   }
 
   createUser(nombre: string, a1: string, a2:string, tel:string, cor: string, usr: string, pass:string){
@@ -42,6 +49,16 @@ export class RegUsrLayoutComponent implements OnInit {
       this.showSucces = true;
 
       console.log(this.newUser);
+
+      this.httpclient.post(this.conexion.ip + "regiU", JSON.stringify(this.newUser)).subscribe(
+        data  => {
+        console.log("POST Request is successful ", data);
+        },
+        error  => {
+        
+        console.log("Error", error);
+        
+        });
     }
   }
 }
