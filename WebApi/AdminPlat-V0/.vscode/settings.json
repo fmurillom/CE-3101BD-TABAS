@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/501cd702-dc75-4d4a-8a2e-f7ed2b0f6483/resourceGroups/BasesMarco/providers/Microsoft.Web/sites/Tabasa",
+    "appService.deploySubpath": "dist\\AdminPlat-V0"
+}

@@ -1,0 +1,34 @@
+<div class="alert alert-danger" role="alert" *ngIf="showAlert">
+  Se requieren todos los campos
+</div>
+<div class="alert alert-success" role="alert" *ngIf="showSucces">
+  BagCart Registrado con Exito
+</div>
+<label *ngIf="!showSucces">
+Porfavor introduzca los datos de la Marca a registrar
+</label>
+<div>
+  <br>
+    <table *ngIf="!showSucces">
+        <div class="scrollit">
+            <tr>
+                <td>
+                   <label for="input-ident">Nombre de la Marca:</label>
+                   <input
+                    #inputIden
+                     id="input-ident"
+                     type="text"
+                     class="form-control"/>
+                </td>
+               </tr>
+               <tr>
+                 <br>
+               </tr>
+              <tr>
+                    <td>
+                        <button type="button" class="btn btn-dark" (click)="createMar(inputIden.value)">Registrar Marca</button>
+                    </td>
+              </tr>
+        </div>
+       </table>
+</div>

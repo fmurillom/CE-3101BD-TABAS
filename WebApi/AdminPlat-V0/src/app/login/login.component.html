@@ -1,0 +1,34 @@
+<div>
+  <div class="alert alert-danger" role="alert" *ngIf="showAlert">
+        Usuario o contraseña incorrectos
+  </div>
+  Login
+  <br>
+  <table>
+    <tr>
+      <td>
+        <label for="input-usr">UserName:</label>
+        <input
+          #inputUsr
+          id="input-usr"
+          type="text"
+          class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="input-pass">Password:</label>
+        <input
+          #inputPass
+          id="input-pass"
+          type="password"
+          class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" class="btn btn-dark" (click)="sendLogInfo(inputUsr.value, inputPass.value)">LogIn</button>
+        </td>
+    </tr>
+  </table>
+</div>

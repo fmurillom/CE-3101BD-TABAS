@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="/">TABAS</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" *ngIf="verify()" href="/login">Login</a>
+      <a class="nav-item nav-link active" *ngIf="!verify()" href="/login">Cerrar Sesion</a>
+      <a class="nav-item nav-link" *ngIf="scanner" href="/asigM">Asignar Maleta</a>
+      <a class="nav-item nav-link" *ngIf="embarcador" href="/asigB">Asignar a Avion</a>
+    </div>
+  </div>
+</nav>

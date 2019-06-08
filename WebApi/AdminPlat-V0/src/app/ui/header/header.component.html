@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="/">Tec-Airlines</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/registerUsr" *ngIf="admin || recepcionista">Registrar Usuario</a>
+      <a class="nav-item nav-link" href="/registerTrb" *ngIf="admin">Registrar Trabajadores</a>
+      <a class="nav-item nav-link" href="/login" *ngIf="verify()" >Login</a>
+      <a class="nav-item nav-link" href="/login" *ngIf="!verify()" >Cerrar Sesion</a>
+      <a class="nav-item nav-link" href="/Cmal"*ngIf="admin || recepcionista" >Creacion de Maletas</a>
+      <a class="nav-item nav-link" href="/CbagC" *ngIf="admin">Creacion de Bag Cart</a>
+      <a class="nav-item nav-link" href="/Asign"  *ngIf="admin">Asignaciones BagCart y Avion</a>
+    </div>
+  </div>
+</nav>

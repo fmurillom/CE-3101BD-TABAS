@@ -1,0 +1,128 @@
+<div class="alert alert-danger" role="alert" *ngIf="showAlert">
+  Se requieren todos los campos
+</div>
+<div class="alert alert-success" role="alert" *ngIf="showSucces">
+  Usuario Registrado con Exito
+</div>
+<label *ngIf="!showSucces">
+Porfavor introduzca sus datos personales para registrarse en el sistema.
+</label>
+<div>
+  <br>
+    <table *ngIf="!showSucces">
+        <div class="scrollit">
+            <tr>
+                <td>
+                   <label for="input-nombre">Nombre:</label>
+                   <input
+                      #inputNom
+                     id="input-nombre"
+                     type="text"
+                     class="form-control"/>
+                 </td>
+                <td>
+                   <label for="input-apellido1">Primer Apellido:</label>
+                   <input
+                    #inputA1
+                     id="input-apellido1"
+                     type="text"
+                     class="form-control"/>
+                </td>
+                <td>
+                   <label for="input-apellido2">Segundo Apellido:</label>
+                   <input
+                   #inputA2
+                     id="input-apellido2"
+                     type="text"
+                     class="form-control"/>
+                </td>
+               </tr>
+               <tr>
+                 <br>
+               </tr>
+               <tr>
+                   <td>
+                       <label for="input-telefono">Numero de Telefono:</label>
+                       <input
+                       #inputTel
+                         id="input-telefono"
+                         type="text"
+                         class="form-control"/>
+                     </td>
+               </tr>
+               <tr>
+                   <br>
+                 </tr>
+               <tr>
+                   <td>
+                       <label for="input-correo">Correo Electronico:</label>
+                       <input
+                       #inputCorr
+                         id="input-correo"
+                         type="text"
+                         class="form-control"/>
+                     </td>
+                     <td>
+                      <label for="input-usr">Nombre de Usuario:</label>
+                      <input
+                      #inputUsr
+                        id="input-usr"
+                        type="text"
+                        class="form-control"/>
+                    </td>
+                    <td>
+                      <label for="input-pass">Contraseña:</label>
+                      <input
+                      #inputPass
+                        id="input-pass"
+                        type="password"
+                        class="form-control"/>
+                    </td>
+               </tr>
+               <tr>
+                   <br>
+               </tr>
+               <tr>
+                   <td>
+                     <label for="chkUni">Universitario:</label>
+                     <input type="checkbox"
+                       ng-model="string"
+                       id="chkUni"
+                       class="form-control"
+                       formControlName="chkUni"
+                       (change)="buttonDisabled = !buttonDisabled"
+                       />
+                   </td>
+               </tr>
+               <tr>
+                   <br>
+               </tr>
+               <tr>
+                   <td>
+                       <label for="input-carnet">Numero de Carnet:</label>
+                       <input
+                         id="input-carnet"
+                         type="text"
+                         class="form-control"
+                         formControlName="input-carnet"
+                         [disabled]="buttonDisabled"/>
+                     </td>
+                     <td>
+                         <label for="selecUni">Universidad de procedencia:</label>
+                         <select class="form-control" id="selecuni" formControlName="selecUni" [disabled]="buttonDisabled">
+                             <option value="" disabled selected>Seleccione su Universidad</option>
+                             <option *ngFor="let uniOp of uni" [value]="uniOp">{{uniOp}}</option>
+                           </select>
+                       </td>
+               </tr>
+               <tr>
+                   <br>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-dark" (click)="createUser(inputNom.value, inputA1.value, inputA2.value, inputTel.value, inputCorr.value, inputUsr.value, inputPass.value)">Registrarse</button>
+                    </td>
+                </tr>
+        </div>
+       </table>
+</div>

@@ -1,0 +1,16 @@
+<div>
+  <table>
+    <tr>
+      <td>
+        <label>Selecciones el vuelo al que desea realizar la asignacion:</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="scrollit">
+          <app-flight-v *ngFor="let vuelo of vuelos" [flight]=vuelo></app-flight-v>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

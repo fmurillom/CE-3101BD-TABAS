@@ -1,0 +1,19 @@
+<div>
+    <table>
+      <tr>
+        <td>
+          <label>Selecciones el bagCart al que desea realizar al vuelo con Id: {{fId}}</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="scrollit">
+            <ng-container *ngFor="let cart of bagCarts">
+              <app-bag-list [cart]=cart></app-bag-list>
+            </ng-container>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
